@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-THRESHOLD=50
+FREE_THRESHOLD=20
 USED_PERCENTAGE=`free | grep Mem | awk '{print $3/$2 * 100.0}'`
 FREE_PERCENTAGE=`free | grep Mem | awk '{print $7/$2 * 100.0}'`
 
-if (( $(echo "$FREE_PERCENTAGE < $THRESHOLD" | bc -l) )); then
+if (( $(echo "$FREE_PERCENTAGE < $FREE_THRESHOLD" | bc -l) )); then
     echo "Memory usage is high!"
     echo "Used percentage: $USED_PERCENTAGE%"
     echo "Free percentage: $FREE_PERCENTAGE%"
