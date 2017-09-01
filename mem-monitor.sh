@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-FREE_THRESHOLD=20
+if [ -z "$1" ]; then
+    FREE_THRESHOLD=20
+else
+    FREE_THRESHOLD=$1
+fi
 USED_PERCENTAGE=`free | grep Mem | awk '{print $3/$2 * 100.0}'`
 FREE_PERCENTAGE=`free | grep Mem | awk '{print $7/$2 * 100.0}'`
 
