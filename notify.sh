@@ -10,5 +10,5 @@ OUTPUT=$($SCRIPT_DIR/mem-monitor.sh)
 CODE=$?
 
 if [ $CODE -eq 1 ]; then
-    notify-send --urgency=critical "Memory monitor alert" "$OUTPUT"
+    notify-send -t 10000 "Memory monitor alert" "$OUTPUT"
 fi
